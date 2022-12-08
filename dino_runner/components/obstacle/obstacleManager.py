@@ -21,11 +21,11 @@ class ObstacleManager:
                 pygame.time.delay(100)
                 self.obstacles = []
 
-                game.player_heart_managre.reduce_heart()
+                game.player_heart_manager.reduce_heart()
                 if game.player_heart_manager.heart_count > 0:
                     game.player.shield = True
                     game.player.show_text = False
-                    start_time = pygame.time.get_ticks
+                    start_time = pygame.time.get_ticks()
                     game.player.shield_time_up = start_time + 1000
                 else:
                     pygame.time.delay(500)

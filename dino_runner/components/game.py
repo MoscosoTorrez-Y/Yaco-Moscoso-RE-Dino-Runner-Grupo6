@@ -15,17 +15,17 @@ class Game:
         self.playing = False
         self.game_speed = 20
         self.x_pos_bg = 0 
-        self.y_pos_bg = 308
+        self.y_pos_bg = 380
         self.player = Dinosaur()
         self.obstacle_manager = ObstacleManager()
         self.points = 0
         self.running = True
         self.death_count = 0
-        self.player_herat_manager = playerHeartManager()
+        self.player_heart_manager = playerHeartManager()
 
     def run(self):
         self.obstacle_manager.reset_obstacles(self)
-        self.player_herat_manager.reduce_heart()
+        self.player_heart_manager.reduce_heart()
         self.playing = True
         while self.playing:
             self.events()
@@ -51,7 +51,7 @@ class Game:
         self.player.draw(self.screen)
         self.obstacle_manager.draw(self.screen)
         self.score()
-        self.player_herat_manager.draw(self.screen)
+        self.player_heart_manager.draw(self.screen)
         pygame.display.update()
         pygame.display.flip()
 
@@ -85,17 +85,17 @@ class Game:
         self.handle_key_events_on_menu()
 
     def print_menu_elements(self, death_count = 0):
-        half_screen_height = SCREEN_HEIGHT //2
-        half_screen_height = SCREEN_WIDTH //2
+        half_screen_height = SCREEN_HEIGHT // 2
+        half_screen_width = SCREEN_WIDTH // 2
 
-        if death_count ==0:
-            text, tex_rect = get_centered_message('Press any key to Start')
-            self.screen.blit(text,tex_rect)
+        if death_count == 0:
+            text, text_rect = get_centered_message('Press any key to Start')
+            self.screen.blit(text, text_rect)
         elif death_count > 0:
-            text, tex_rect = get_centered_message('Press any key to Start')
+            text, text_rect = get_centered_message('Press any key to Restart')
             score, score_rect = get_centered_message('Your Score: '+ str(self.points), height=half_screen_height + 50)
-            self.sreen.blit(score,score_rect)
-            self.sreen.blit(text,tex_rect)
+            self.screen.blit(score, score_rect)
+            self.screen.blit(text, text_rect)
 
     def handle_key_events_on_menu(self):
         for event in pygame.event.get():
