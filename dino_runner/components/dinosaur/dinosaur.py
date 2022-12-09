@@ -100,7 +100,7 @@ class Dinosaur(Sprite):
                     screen.blit(text,textRect)
                 
             else:
-                self.escudo = False
+                self.shield = False
                 self.update_to_defaul(SHIELD_TYPE)
 
     def update_to_defaul(self, current_type):
