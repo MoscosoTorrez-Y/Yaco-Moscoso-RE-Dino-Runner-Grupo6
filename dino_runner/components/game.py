@@ -28,9 +28,9 @@ class Game:
     def run(self):
         self.obstacle_manager.reset_obstacles(self)
         self.player_heart_manager.reset_hearts()
-        self.power_up_manager.reset_power_ups(self.points)
         self.points = 0
         self.game_speed = 20
+        self.power_up_manager.reset_power_ups(self.points)
         self.playing = True
         while self.playing:
             self.events()
@@ -101,7 +101,7 @@ class Game:
             self.screen.blit(text, text_rect)
         elif death_count > 0:
             text, text_rect = get_centered_message('Press any key to Restart')
-            score, score_rect = get_centered_message('Your Score: '+ str(self.points), height=half_screen_height + 50)
+            score, score_rect = get_centered_message('Your Score: ' + str(self.points), height=half_screen_height + 50)
             self.screen.blit(score, score_rect)
             self.screen.blit(text, text_rect)
 

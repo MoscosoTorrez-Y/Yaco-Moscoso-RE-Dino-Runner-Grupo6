@@ -1,5 +1,6 @@
 import random 
 from dino_runner.utils.constants import SCREEN_HEIGHT
+from dino_runner.components.player_hearts.nubes import Nubes
 
 from pygame.sprite import Sprite
 
